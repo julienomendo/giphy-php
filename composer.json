@@ -1,0 +1,34 @@
+{
+    "name": "xeased/giphy-php",
+    "namespace": "xeased/giphy",
+    "description": "PHP interface to Giphy API.",
+    "authors":
+    [
+        {
+            "name": "Niklas Grau",
+            "email": "support@niklasgrau.de"
+        }
+    ],
+    "keywords":
+    [
+        "giphy",
+        "gif",
+        "gifs",
+        "sticker",
+        "stickers"
+    ],
+    "require":
+    {
+    },
+    "require-dev":
+    {
+        "phpunit/phpunit": "^6.1"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "xeased\\giphy\\": "src/"
+        }
+    }
+}
