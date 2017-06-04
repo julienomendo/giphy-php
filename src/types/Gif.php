@@ -53,7 +53,7 @@ class Gif
      * Use a plus or url encode for phrases.
      * Example paul+rudd, ryan+gosling or american+psycho.
      * @param  string $q      Search query term or phrase
-     * @param  array  $params Optional parameter (limit, offset, rating, lang, fmt)
+     * @param  array  $params Optional parameter (limit, offset, rating, lang, fmt, sort)
      * @return mixed          The JSON decoded response
      */
     public function search($q, $params = [])

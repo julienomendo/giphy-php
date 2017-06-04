@@ -69,9 +69,76 @@ If you don't want to use the general **Giphy** class, you can directly use the *
 ```php
 <?php
     $gif = new \xeased\giphy\types\Gif($api_key);
-    $randomGif = $gif->random();
+    $randomGif = $gif->search('keyboard+cat', ['limit' => 15]);
 ?>
 ```
+
+### Endpoints
+* GIF by id
+* GIFs by ids
+* Search
+* Trending
+* Translate
+* Random
+
+#### GIF by id
+Get GIFs by an id.
+
+**Signature:** `getById($id)`
+
+
+| Parameter | Type   | Description       | Required |
+|-----------|--------|-------------------|----------|
+| $ids      | string | The id of the gif | true     |
+
+#### GIFs by ids
+Get GIFs by a list of ids.
+
+**Signature:** `getByIdList($ids)`
+
+| Parameter | Type  | Description                                           | Required |
+|-----------|-------|-------------------------------------------------------|----------|
+| $ids      | array | A comma separated list of IDs. | true     |
+
+#### Search
+Search all GIFs on Giphy for a word or phrase. Example cat+keyboard.
+
+**Signature:** `search($q, $params)`
+
+| Parameter | Type   | Description                                           | Required |
+|-----------|--------|-------------------------------------------------------|----------|
+| $q        | string | Search query term or phrase                           | true     |
+| $params   | array  | Optional parameter <ul><li>limit - Number of results (maximum 100, default 25).</li><li>offset - Results offset (default 0).</li><li>rating - Limit response by rating (y,g, pg, pg-13 or r).</li><li>lang - Default country for regional content (2-letter ISO 639-1).</li><li>fmt - Response in html or json</li><li>sort - The sort order of the results returned (recent or relevant)</li></ul>  | false    |  |
+
+#### Trending
+Get a list of trending GIFs.
+
+**Signature:** `trending($params)`
+
+| Parameter | Type   | Description                                            | Required |
+|-----------|--------|--------------------------------------------------------|----------|
+| $params   | array  | <ul><li>limit - Number of results (maximum 100, default 25).</li><li>rating - Limit response by rating (y,g, pg, pg-13 or r).</li><li>fmt - Response in html or json</li><ul> | false    |
+
+
+#### Translate
+Translates a query to a matching GIF.
+
+**Signature:** `translate($s, $params)`
+
+| Parameter | Type   | Description                                            | Required |
+|-----------|--------|--------------------------------------------------------|----------|
+| $s        | string | Term or phrase to translate into a GIF                 | true     |
+| $params   | array  | <ul><li>rating - Limit response by rating (y,g, pg, pg-13 or r).</li><li>lang - Default country for regional content (2-letter ISO 639-1).</li><li>fmt - Response in html or json</li></ul> | false    |
+
+#### Random
+Get a random GIF.
+
+**Signature:** `random($tag, $params)`
+
+| Parameter | Type   | Description                                            | Required |
+|-----------|--------|--------------------------------------------------------|----------|
+| $tag        | string | A tag to limit randomness                 | false     |
+| $params   | array  | <ul><li>rating - Limit response by rating (y,g, pg, pg-13 or r).</li><li>fmt - Response in html or json</li></ul> | false    |
 
 ## Sticker Usage
 Like the usage of the **Gif** class above, you can also directly use the **Sticker** class:
@@ -83,6 +150,51 @@ Like the usage of the **Gif** class above, you can also directly use the **Stick
 ?>
 ```
 
+### Endpoints
+* Search
+* Trending
+* Translate
+* Random
+
+#### Search
+Search all sticker on Giphy for a word or phrase. Example dog.
+
+**Signature:** `search($q, $params)`
+
+| Parameter | Type   | Description                                            | Required |
+|-----------|--------|--------------------------------------------------------|----------|
+| $q        | string | Search query term or phrase                 | true     |
+| $params   | array  | <ul><li>limit - Number of results (maximum 100, default 25).</li><li>offset - Results offset (default 0).</li><li>rating - Limit response by rating (y,g, pg, pg-13 or r).</li><li>lang - Default country for regional content (2-letter ISO 639-1).</li><li>fmt - Response in html or json</li><li>sort - The sort order of the results returned (recent or relevant)</li></ul> | false    |
+
+#### Trending
+Get a list of trending GIFs.
+
+**Signature:** `trending($params)`
+
+| Parameter | Type   | Description                                            | Required |
+|-----------|--------|--------------------------------------------------------|----------|
+| $params   | array  | <ul><li>limit - Number of results (maximum 100, default 25).</li><li>offset - Results offset (default 0).</li><li>rating - Limit response by rating (y,g, pg, pg-13 or r).</li><li>fmt - Response in html or json</li><ul> | false    |
+
+#### Translate
+Translates a query to a matching GIF.
+
+**Signature:** `translate($s, $params)`
+
+| Parameter | Type   | Description                                            | Required |
+|-----------|--------|--------------------------------------------------------|----------|
+| $s        | string | Term or phrase to translate into a sticker                 | true     |
+| $params   | array  | <ul><li>rating - Limit response by rating (y,g, pg, pg-13 or r).</li><li>lang - Default country for regional content (2-letter ISO 639-1).</li><li>fmt - Response in html or json</li></ul> | false    |
+
+#### Random
+Get a random sticker.
+
+**Signature:** `roulette($tag, $params)`
+
+| Parameter | Type   | Description                                            | Required |
+|-----------|--------|--------------------------------------------------------|----------|
+| $tag        | string | A tag to limit randomness                 | false     |
+| $params   | array  | <ul><li>rating - Limit response by rating (y,g, pg, pg-13 or r).</li><li>fmt - Response in html or json</li></ul> | false    |
+
 # Need help?
 If you have questions related to this library, feel free to write an email or create an issue and we'll try to help find a solution.
 
@@ -92,3 +204,7 @@ If you have questions related to this library, feel free to write an email or cr
 Contributions are welcomed and appreciated!
 
 # License
+This library is licensed under the [MIT License (MIT)](https://github.com/xeased/giphy-php/blob/master/LICENSE.MD).
+
+# Credits
+This library was created by Niklas Grau.
