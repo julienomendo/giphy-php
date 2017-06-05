@@ -30,7 +30,12 @@ class Client
             $url = self::GIPHY_API_URL . $endpoint . ($query ? "?$query" : '');
             $result = file_get_contents($url);
 
-            return json_decode($result);
+            if(!isset($params['fmt']) || $params['fmt'] == 'json')
+            {
+                return json_decode($result);
+            }
+
+            return $result;
         }
         catch (Exception $e)
         {
