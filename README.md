@@ -6,7 +6,17 @@ The library provides an easy-to-use PHP interface to the [Giphy API](https://git
 # Installation
 Simply add to your composer:
 
-    composer require xeased/giphy-php
+```json
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/xeased/giphy-php"
+    }
+],
+"require": {
+    "xeased/giphy-php": "dev-master"
+}
+```
 
 That's it, you're ready to have fun!
 
